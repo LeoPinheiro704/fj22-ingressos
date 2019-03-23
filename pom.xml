@@ -149,5 +149,11 @@
             </plugin>
         </plugins>
     </build>
+    <developers>
+    	<developer>
+    		<name>Leonardo Pinheiro</name>
+    		<email>andersonleonardo704@gmail.com</email>
+    	</developer>
+    </developers>
 
 </project>
