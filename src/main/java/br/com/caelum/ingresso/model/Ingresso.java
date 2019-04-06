@@ -8,7 +8,7 @@ import br.com.caelum.ingresso.model.descontos.Desconto;
 public class Ingresso {
 
 	private Sessao sessao;
-	private BigDecimal preco;
+	private BigDecimal preco = BigDecimal.ZERO;
 
 	/**
 	 * @Deprecated hibernate only
