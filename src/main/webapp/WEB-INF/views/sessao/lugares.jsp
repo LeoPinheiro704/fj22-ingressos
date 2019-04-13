@@ -38,7 +38,9 @@
 								<tr>
 								<c:forEach var="lugar" items="${map.value}">
 									<td class="fileira-assento"><figure>
-										<svg class="assento disponivel" id="${lugar.id}"  version="1.0" id="SEAT" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+										<svg class="assento ${sessao.isDisponivel(lugar) && !carrinho.isSelecionado(lugar) ? 'disponivel' : 'ocupado' }"
+											onclick="${sessao.isDisponivel(lugar) && !carrinho.isSelecionado(lugar) ? 'changeCheckbox(this)' : '' }"
+											id="${lugar.id}"  version="1.0" id="SEAT" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 												 viewBox="0 0 318.224 305.246" enable-background="new 0 0 318.224 305.246" xml:space="preserve">
 											<g id="FILL">
 												<path d="M269.395,132.246h-15.02V51.414c0-11.758-9.492-21.248-21.248-21.248H85.097
@@ -86,7 +88,7 @@
 					</tr>
 					<tr>
 						<td class="legenda escolhido">
-							<span class="circulo circulo-escolhido"></span>
+							<span class="circulo img.idcirculo-escolhido"></span>
 							Selecionado
 						</td>
 					</tr>
@@ -113,7 +115,7 @@
 	                </tbody>
 	            </table>
 	
-	            <button type="submit" class="btn btn-primary finaliza">Finalizar Compra</button>
+	            <button type="submit" class="btn bimg.idtn-primary finaliza">Finalizar Compra</button>
 	        </form>
 			</div>
 		</div>
@@ -130,7 +132,7 @@
                 var lugarNome = img.id;
                 var linhaId = "linha_" + salaId + "_" + sessaoId + "_" + lugarNome;
 
-                console.log(linhaId);
+                console.log(linhaId);img.id
 
                 var tbody = document.querySelector("#tabela-ingressos>tbody");
                 if (!checkbox.checked){

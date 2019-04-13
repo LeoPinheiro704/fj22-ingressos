@@ -31,5 +31,10 @@ public class SessaoDao {
 				Sessao.class).setParameter("filme", filme).getResultList();
 	}
 	
+	public Sessao findOne(Integer id) {
+		return manager.createQuery("Select distinct(s) from Sessao s where s.id = :id", Sessao.class)
+				.setParameter("id", id)
+				.getSingleResult();
+	}
 	
 }
